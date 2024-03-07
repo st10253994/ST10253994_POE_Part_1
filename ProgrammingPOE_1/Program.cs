@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            //Declarations
             List<string> ingrediants = new List<string>();
             List<int> quantity = new List<int>();
             List<string> steps = new List<string>();
