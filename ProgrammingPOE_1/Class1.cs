@@ -15,13 +15,17 @@ class Methods
      *Method ingrediants saves all the user ingrediants, quantities and measurements to arraylists
      *the data stored in the arraylist is meant for later use
      */
-    public void Ingrediants(List<string> ingrediants, List<int> quantity, List<string> measurements)
+    public void Ingrediants(List<string> ingrediants, List<int> quantity, List<string> measurements, List<string> recipeN)
     {
         int ingrediantC, amount;
-        string ingrediantName, measure;
+        string ingrediantName, measure, recipe;
 
         Console.WriteLine("Please enter the amount of ingrediants: ");
         ingrediantC = Convert.ToInt32(Console.ReadLine()); // this value will be used for the forloop 
+
+        Console.WriteLine("Please enter the recipe name: ");
+        recipe = Console.ReadLine();
+        recipeN.Add(recipe);
 
         for (int i = 0; i < ingrediantC; i++)
         {
@@ -70,9 +74,15 @@ class Methods
     /*
      * Method PrintRecipe is made to take all the information stored in the arraylists and print it out into a specific format
      */
-    public void PrintRecipe(List<string> steps, List<string> ingrediants, List<int> quantity, List<string> measurements)
-    {
-        Console.WriteLine("Recipe:\n\nIngrediants:");
+    public void PrintRecipe(List<string> steps, List<string> ingrediants, List<int> quantity, List<string> measurements, List<string> recipeN)
+    {   
+        Console.WriteLine("Recipe: ");
+        for (int i =0; i < recipeN.Count; i++)
+        {
+            Console.WriteLine(recipeN[i]);
+        }
+
+        Console.WriteLine("\n\nIngrediants:");
         for (int i = 0; i < ingrediants.Count; i++) // forloop is used to print out all values saved in the arraylists ingrediants, quantity and measurements
         {
             Console.WriteLine(ingrediants[i]);

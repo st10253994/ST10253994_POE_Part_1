@@ -9,10 +9,11 @@
             List<int> quantity = new List<int>();
             List<string> steps = new List<string>();
             List<string> measurements = new List<string>();
+            List<string> recipeN = new List<string>();
             
 
             Console.WriteLine("Please select the following: \n1) Enter your ingrediants\n2) Add steps\n3) Print recipe\n4) Scale recipe" +
-                "\n5) Reset recipe\n6) Clear recipe");
+                "\n5) Reset recipe\n6) Clear recipe \nEnter your choice: ");
 
             Methods m = new Methods(); //Object created to access methods from other class
 
@@ -32,7 +33,7 @@
                 {
                     case 0:
                         {
-                            m.Ingrediants(ingrediants, quantity, measurements);
+                            m.Ingrediants(ingrediants, quantity, measurements, recipeN);
                             break;
                         }
                     case 1:
@@ -42,7 +43,7 @@
                         }
                     case 2:
                         {
-                            m.PrintRecipe(steps, ingrediants, quantity, measurements);
+                            m.PrintRecipe(steps, ingrediants, quantity, measurements, recipeN);
                             break;
                         }
                     case 3:
@@ -66,7 +67,7 @@
                  * the choices are placed at the end of the case statement to provide a constant choice for the user
                  */
                 Console.WriteLine("Please select the following: \n1) Enter your ingrediants\n2) Add steps\n3) Print recipe\n4) Scale recipe" +
-                "\n5) Reset recipe\n6) Clear recipe");
+                "\n5) Reset recipe\n6) Clear recipe\nEnter your choice: ");
 
                 choice = Convert.ToInt32(Console.ReadLine());
             }
