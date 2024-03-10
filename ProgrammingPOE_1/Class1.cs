@@ -103,7 +103,7 @@ class Methods
      */
     public void ScaleRecipe(List<int> quantity)
     {
-        int amount, factor;
+        int factor;
 
         Console.WriteLine("How many people will there be?");
         factor = Convert.ToInt32(Console.ReadLine());

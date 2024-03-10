@@ -29,7 +29,7 @@
                 /* choice - 1 insures that when the user enters 1 it will go to case 0
                  * it ensures that the user is guided into the correct case statement
                  */
-                switch (choice - 1)
+                switch (choice -= 1)
                 {
                     case 0:
                         {
