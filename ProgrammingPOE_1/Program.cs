@@ -1,4 +1,6 @@
-﻿namespace ProgrammingPOE_1
+﻿using System;
+
+namespace ProgrammingPOE_1
 {
     internal class Program
     {
@@ -10,10 +12,18 @@
             List<string> steps = new List<string>();
             List<string> measurements = new List<string>();
             List<string> recipeN = new List<string>();
-            
 
-            Console.WriteLine("Please select the following: \n1) Enter your ingrediants\n2) Add steps\n3) Print recipe\n4) Scale recipe" +
-                "\n5) Reset recipe\n6) Clear recipe \nEnter your choice: ");
+
+                Console.WriteLine("""
+                                  Please enter the following
+                                  1)Enter your ingrediants
+                                  2) Add steps
+                                  3) Print recipe
+                                  4) Scale recipe
+                                  5) Reset recipe
+                                  6) Clear recipe
+                                  Enter your choice:
+                                  """);
 
             Methods m = new Methods(); //Object created to access methods from other class
 
@@ -66,8 +76,16 @@
                 /*
                  * the choices are placed at the end of the case statement to provide a constant choice for the user
                  */
-                Console.WriteLine("Please select the following: \n1) Enter your ingrediants\n2) Add steps\n3) Print recipe\n4) Scale recipe" +
-                "\n5) Reset recipe\n6) Clear recipe\nEnter your choice: ");
+                Console.WriteLine("""
+                                  Please enter the following
+                                  1)Enter your ingrediants
+                                  2) Add steps
+                                  3) Print recipe
+                                  4) Scale recipe
+                                  5) Reset recipe
+                                  6) Clear recipe
+                                  Enter your choice:
+                                  """);
 
                 choice = Convert.ToInt32(Console.ReadLine());
             }
