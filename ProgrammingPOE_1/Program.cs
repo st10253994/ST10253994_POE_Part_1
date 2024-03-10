@@ -16,7 +16,7 @@ namespace ProgrammingPOE_1
 
                 Console.WriteLine("""
                                   Please enter the following
-                                  1)Enter your ingrediants
+                                  1) Enter your ingrediants
                                   2) Add steps
                                   3) Print recipe
                                   4) Scale recipe
@@ -78,7 +78,7 @@ namespace ProgrammingPOE_1
                  */
                 Console.WriteLine("""
                                   Please enter the following
-                                  1)Enter your ingrediants
+                                  1) Enter your ingrediants
                                   2) Add steps
                                   3) Print recipe
                                   4) Scale recipe
