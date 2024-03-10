@@ -12,20 +12,11 @@ namespace ProgrammingPOE_1
             List<string> steps = new List<string>();
             List<string> measurements = new List<string>();
             List<string> recipeN = new List<string>();
-
-
-                Console.WriteLine("""
-                                  Please enter the following
-                                  1) Enter your ingrediants
-                                  2) Add steps
-                                  3) Print recipe
-                                  4) Scale recipe
-                                  5) Reset recipe
-                                  6) Clear recipe
-                                  Enter your choice:
-                                  """);
-
             Methods m = new Methods(); //Object created to access methods from other class
+
+            m.DisplayMenu("Main Menu");
+
+
 
             int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -71,21 +62,15 @@ namespace ProgrammingPOE_1
                             m.ClearRecipe(steps, ingrediants, quantity, measurements, recipeN);
                             break;
                         }
-
+                    default:
+                        {
+                            return;
+                        }
                 }
                 /*
                  * the choices are placed at the end of the case statement to provide a constant choice for the user
                  */
-                Console.WriteLine("""
-                                  Please enter the following
-                                  1) Enter your ingrediants
-                                  2) Add steps
-                                  3) Print recipe
-                                  4) Scale recipe
-                                  5) Reset recipe
-                                  6) Clear recipe
-                                  Enter your choice:
-                                  """);
+                m.DisplayMenu("Main Menu");
 
                 choice = Convert.ToInt32(Console.ReadLine());
             }

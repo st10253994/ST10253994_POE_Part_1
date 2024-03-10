@@ -11,6 +11,23 @@ class Methods
 
     public int sum = 1; // sum was made to be used in the scaling of the recipes
 
+    public void DisplayMenu(String menuName) // Changed to method for reusability
+    {
+        if ("Main Menu".Equals(menuName))
+        { 
+        Console.WriteLine("""
+                                  Please enter the following
+                                  1) Enter your ingrediants
+                                  2) Add steps
+                                  3) Print recipe
+                                  4) Scale recipe
+                                  5) Reset recipe
+                                  6) Clear recipe
+                                  Enter your choice:
+                                  """);
+        }
+    }
+
     /*
      *Method ingrediants saves all the user ingrediants, quantities and measurements to arraylists
      *the data stored in the arraylist is meant for later use
