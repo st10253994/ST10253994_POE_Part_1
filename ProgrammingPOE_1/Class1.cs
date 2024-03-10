@@ -113,7 +113,7 @@ class Methods
             amount = quantity[i] * factor;
             quantity[i] = amount;
         }
-        sum = sum * factor; // sum will be used to reset the scale for 1 portion later on
+        sum *= factor; // sum will be used to reset the scale for 1 portion later on
     }
 
     /*
