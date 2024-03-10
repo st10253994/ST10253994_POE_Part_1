@@ -121,12 +121,9 @@ class Methods
      */
     public void ResetRecipe(List<int> quantity)
     {
-        int amount;
-
         for (int i = 0; i < quantity.Count; i++) // is made to reset the quantity to 1 portion by deviding with the product of sum and factor
         {
             quantity[i] /= sum;
-            
         }
     }
 
