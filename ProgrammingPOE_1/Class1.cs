@@ -110,8 +110,7 @@ class Methods
 
         for (int i = 0; i < quantity.Count; i++) // forloop is used to scale for the amount of people by multiplying the quantity at index i with the factor
         {
-            amount = quantity[i] * factor;
-            quantity[i] = amount;
+            quantity[i] *= factor;
         }
         sum *= factor; // sum will be used to reset the scale for 1 portion later on
     }
@@ -126,8 +125,8 @@ class Methods
 
         for (int i = 0; i < quantity.Count; i++) // is made to reset the quantity to 1 portion by deviding with the product of sum and factor
         {
-            amount = quantity[i] / sum;
-            quantity[i] = amount;
+            quantity[i] /= sum;
+            
         }
     }
 
