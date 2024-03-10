@@ -20,12 +20,13 @@ class Methods
         int ingrediantC, amount;
         string ingrediantName, measure, recipe;
 
-        Console.WriteLine("Please enter the amount of ingrediants: ");
-        ingrediantC = Convert.ToInt32(Console.ReadLine()); // this value will be used for the forloop 
-
         Console.WriteLine("Please enter the recipe name: ");
         recipe = Console.ReadLine();
         recipeN.Add(recipe);
+
+        Console.WriteLine("Please enter the amount of ingrediants: ");
+        ingrediantC = Convert.ToInt32(Console.ReadLine()); // this value will be used for the forloop 
+
 
         for (int i = 0; i < ingrediantC; i++)
         {
@@ -134,12 +135,13 @@ class Methods
      * The method ClearRecipe is made to clear all information from the arraylists
      * it removes all recipes saved
      */
-    public void ClearRecipe(List<string> steps, List<string> ingrediants, List<int> quantity, List<string> measurements)
+    public void ClearRecipe(List<string> steps, List<string> ingrediants, List<int> quantity, List<string> measurements, List<string> recipeN)
     {
         quantity.Clear();
         ingrediants.Clear();
         measurements.Clear();
         steps.Clear();
+        recipeN.Clear();
     }
 
 

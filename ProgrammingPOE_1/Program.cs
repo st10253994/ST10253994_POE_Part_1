@@ -58,7 +58,7 @@
                         }
                     case 5:
                         {
-                            m.ClearRecipe(steps, ingrediants, quantity, measurements);
+                            m.ClearRecipe(steps, ingrediants, quantity, measurements, recipeN);
                             break;
                         }
 
