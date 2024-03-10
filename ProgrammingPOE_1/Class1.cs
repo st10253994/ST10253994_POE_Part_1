@@ -87,7 +87,7 @@ class Methods
         for (int i = 0; i < ingrediants.Count; i++) // forloop is used to print out all values saved in the arraylists ingrediants, quantity and measurements
         {
             Console.WriteLine(ingrediants[i]);
-            Console.WriteLine(quantity[i] + measurements[i]);
+            Console.WriteLine(quantity[i] + measurements[i] +"\n");
         }
 
         Console.WriteLine("\nSteps: ");
