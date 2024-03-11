@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-class Methods
+class Recipes
 {
 
 
     public int sum = 1; // sum was made to be used in the scaling of the recipes
 
-    public void DisplayMenu(String menuName) // Changed to method for reusability
+    public void displayMenu(String menuName) // Changed to method for reusability
     {
         if ("Main Menu".Equals(menuName))
         { 
@@ -32,7 +32,7 @@ class Methods
      *Method ingrediants saves all the user ingrediants, quantities and measurements to arraylists
      *the data stored in the arraylist is meant for later use
      */
-    public void Ingrediants(List<string> ingrediants, List<int> quantity, List<string> measurements, List<string> recipeN)
+    public void ingrediants(List<string> ingrediants, List<int> quantity, List<string> measurements, List<string> recipeN)
     {
         int ingrediantC, amount;
         string ingrediantName, measure, recipe;
@@ -73,7 +73,7 @@ class Methods
      * Method steps allows the user to right as many steps as is required for the recipe
      * the steps is saved to an arraylist steps
      */
-    public void Steps(List<string> steps)
+    public void steps(List<string> steps)
     {
         string step;
         int stepA;
@@ -92,7 +92,7 @@ class Methods
     /*
      * Method PrintRecipe is made to take all the information stored in the arraylists and print it out into a specific format
      */
-    public void PrintRecipe(List<string> steps, List<string> ingrediants, List<int> quantity, List<string> measurements, List<string> recipeN)
+    public void printRecipe(List<string> steps, List<string> ingrediants, List<int> quantity, List<string> measurements, List<string> recipeN)
     {   
         Console.WriteLine("Recipe: ");
         for (int i =0; i < recipeN.Count; i++)
@@ -118,7 +118,7 @@ class Methods
     /*
      * ScaleRecipe is made to scale the information stored in the quantity arraylist for as many people the user needs
      */
-    public void ScaleRecipe(List<int> quantity)
+    public void scaleRecipe(List<int> quantity)
     {
         int factor;
 
@@ -136,7 +136,7 @@ class Methods
      * The method RestRecipe is made to reverse the effects of scale recipe
      * This ensures that if the user is done with the recipe he can scale it back down to a single portion
      */
-    public void ResetRecipe(List<int> quantity)
+    public void resetRecipe(List<int> quantity)
     {
         for (int i = 0; i < quantity.Count; i++) // is made to reset the quantity to 1 portion by deviding with the product of sum and factor
         {
@@ -148,7 +148,7 @@ class Methods
      * The method ClearRecipe is made to clear all information from the arraylists
      * it removes all recipes saved
      */
-    public void ClearRecipe(List<string> steps, List<string> ingrediants, List<int> quantity, List<string> measurements, List<string> recipeN)
+    public void clearRecipe(List<string> steps, List<string> ingrediants, List<int> quantity, List<string> measurements, List<string> recipeN)
     {
         quantity.Clear();
         ingrediants.Clear();

@@ -12,9 +12,9 @@ namespace ProgrammingPOE_1
             List<string> steps = new List<string>();
             List<string> measurements = new List<string>();
             List<string> recipeN = new List<string>();
-            Methods m = new Methods(); //Object created to access methods from other class
+            Recipes obj = new Recipes(); //Object created to access methods from other class
 
-            m.DisplayMenu("Main Menu");
+            obj.displayMenu("Main Menu");
 
 
 
@@ -34,32 +34,32 @@ namespace ProgrammingPOE_1
                 {
                     case 0:
                         {
-                            m.Ingrediants(ingrediants, quantity, measurements, recipeN);
+                            obj.ingrediants(ingrediants, quantity, measurements, recipeN);
                             break;
                         }
                     case 1:
                         {
-                            m.Steps(steps);
+                            obj.steps(steps);
                             break;
                         }
                     case 2:
                         {
-                            m.PrintRecipe(steps, ingrediants, quantity, measurements, recipeN);
+                            obj.printRecipe(steps, ingrediants, quantity, measurements, recipeN);
                             break;
                         }
                     case 3:
                         {
-                            m.ScaleRecipe(quantity);
+                            obj.scaleRecipe(quantity);
                             break;
                         }
                     case 4:
                         {
-                            m.ResetRecipe(quantity);
+                            obj.resetRecipe(quantity);
                             break;
                         }
                     case 5:
                         {
-                            m.ClearRecipe(steps, ingrediants, quantity, measurements, recipeN);
+                            obj.clearRecipe(steps, ingrediants, quantity, measurements, recipeN);
                             break;
                         }
                     default:
@@ -70,7 +70,7 @@ namespace ProgrammingPOE_1
                 /*
                  * the choices are placed at the end of the case statement to provide a constant choice for the user
                  */
-                m.DisplayMenu("Main Menu");
+                obj.displayMenu("Main Menu");
 
                 choice = Convert.ToInt32(Console.ReadLine());
             }
