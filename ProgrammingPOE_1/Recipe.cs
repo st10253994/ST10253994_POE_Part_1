@@ -9,39 +9,26 @@ class Recipes
 {
 
 
-    public int sum = 1; // sum was made to be used in the scaling of the recipes
-
-    public void displayMenu(String menuName) // Changed to method for reusability
-    {
-        if ("Main Menu".Equals(menuName))
-        { 
-        Console.WriteLine("""
-                                  Please enter the following
-                                  1) Enter your ingrediants
-                                  2) Add steps
-                                  3) Print recipe
-                                  4) Scale recipe
-                                  5) Reset recipe
-                                  6) Clear recipe
-                                  Enter your choice:
-                                  """);
-        }
-    }
+    private double sum = 1; // sum was made to be used in the scaling of the recipes
+    PrintUtil obj = new PrintUtil();
+    Ingrediants ing = new Ingrediants();
+    
 
     /*
      *Method ingrediants saves all the user ingrediants, quantities and measurements to arraylists
      *the data stored in the arraylist is meant for later use
      */
-    public void ingrediants(List<string> ingrediants, List<int> quantity, List<string> measurements, List<string> recipeN)
+    public void ingrediants(List<string> ingrediants, List<double> quantity, List<string> measurements, List<string> recipeN)
     {
-        int ingrediantC, amount;
-        string ingrediantName, measure, recipe;
+        int ingrediantC;
+       
+        string recipe;
 
-        Console.WriteLine("Please enter the recipe name: ");
+        obj.PrintRecipeN();
         recipe = Console.ReadLine();
         recipeN.Add(recipe);
 
-        Console.WriteLine("Please enter the amount of ingrediants: ");
+        obj.PrintIAmount();
         ingrediantC = Convert.ToInt32(Console.ReadLine()); // this value will be used for the forloop 
 
 
@@ -52,17 +39,17 @@ class Recipes
              * the next 3 inputs will be stored in the arraylists ingrediants, quantity and measurements
              */
 
-            Console.WriteLine("Please enter your ingrediant name: ");
-            ingrediantName = Console.ReadLine();
-            ingrediants.Add(ingrediantName);
+            obj.PrintIName();
+            ing.setIngrediants(Console.ReadLine());
+            ingrediants.Add(ing.getIngrediants());
 
-            Console.WriteLine("Please eneter the quantity: ");
-            amount = Convert.ToInt32(Console.ReadLine());
-            quantity.Add(amount);
+            obj.PrintAmountReq();
+            ing.setAmount(Convert.ToInt32(Console.ReadLine()));
+            quantity.Add(ing.getAmount());
 
-            Console.WriteLine("Please enter your measuring method: ");
-            measure = Console.ReadLine();
-            measurements.Add(measure);
+            obj.PrintMeasure();
+            ing.setUnitOfMeasure(Console.ReadLine());
+            measurements.Add(ing.getUnitOfMeasure());
 
 
         }
@@ -78,12 +65,12 @@ class Recipes
         string step;
         int stepA;
 
-        Console.WriteLine("Please enter the amount of steps: ");
+        obj.StepCountReq();
         stepA = Convert.ToInt32(Console.ReadLine()); // this value will be used to determine the amount of times we go through the forloop
 
         for (int i = 0; i < stepA; i++) // forloop is used to output and gain a input for as many steps as is required
         {
-            Console.WriteLine("Please enter step " + (i + 1));
+            Console.WriteLine(obj.StepTrack() + (i + 1));
             step = Console.ReadLine();
             steps.Add(step);
         }
@@ -92,25 +79,25 @@ class Recipes
     /*
      * Method PrintRecipe is made to take all the information stored in the arraylists and print it out into a specific format
      */
-    public void printRecipe(List<string> steps, List<string> ingrediants, List<int> quantity, List<string> measurements, List<string> recipeN)
-    {   
-        Console.WriteLine("Recipe: ");
+    public void printRecipe(List<string> steps, List<string> ingrediants, List<double> quantity, List<string> measurements, List<string> recipeN)
+    {
+        obj.Recipe();
         for (int i =0; i < recipeN.Count; i++)
         {
             Console.WriteLine(recipeN[i]);
         }
 
-        Console.WriteLine("\n\nIngrediants:");
+       obj.Ingrediants();
         for (int i = 0; i < ingrediants.Count; i++) // forloop is used to print out all values saved in the arraylists ingrediants, quantity and measurements
         {
             Console.WriteLine(ingrediants[i]);
-            Console.WriteLine(quantity[i] + measurements[i] + "\n");
+            Console.WriteLine(quantity[i] + " " + measurements[i] + "\n");
         }
 
-        Console.WriteLine("\nSteps: ");
+        obj.Steps();
         for (int i = 0; i < steps.Count; i++) // forloop is used to print out all values stored in the arraylist steps
         {
-            Console.WriteLine("Step " + (i + 1) + ":" + steps[i]);
+            Console.WriteLine("Step " + (i + 1) + ": " + steps[i]);
         }
         Console.WriteLine("\n");
     }
@@ -118,12 +105,12 @@ class Recipes
     /*
      * ScaleRecipe is made to scale the information stored in the quantity arraylist for as many people the user needs
      */
-    public void scaleRecipe(List<int> quantity)
+    public void scaleRecipe(List<double> quantity)
     {
-        int factor;
+        double factor;
 
-        Console.WriteLine("How many people will there be?");
-        factor = Convert.ToInt32(Console.ReadLine());
+        obj.Guest();
+        factor = Convert.ToDouble(Console.ReadLine());
 
         for (int i = 0; i < quantity.Count; i++) // forloop is used to scale for the amount of people by multiplying the quantity at index i with the factor
         {
@@ -136,7 +123,7 @@ class Recipes
      * The method RestRecipe is made to reverse the effects of scale recipe
      * This ensures that if the user is done with the recipe he can scale it back down to a single portion
      */
-    public void resetRecipe(List<int> quantity)
+    public void resetRecipe(List<double> quantity)
     {
         for (int i = 0; i < quantity.Count; i++) // is made to reset the quantity to 1 portion by deviding with the product of sum and factor
         {
@@ -148,7 +135,7 @@ class Recipes
      * The method ClearRecipe is made to clear all information from the arraylists
      * it removes all recipes saved
      */
-    public void clearRecipe(List<string> steps, List<string> ingrediants, List<int> quantity, List<string> measurements, List<string> recipeN)
+    public void clearRecipe(List<string> steps, List<string> ingrediants, List<double> quantity, List<string> measurements, List<string> recipeN)
     {
         quantity.Clear();
         ingrediants.Clear();

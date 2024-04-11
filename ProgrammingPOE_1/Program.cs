@@ -8,14 +8,14 @@ namespace ProgrammingPOE_1
         {
             //Declarations
             List<string> ingrediants = new List<string>();
-            List<int> quantity = new List<int>();
+            List<double> quantity = new List<double>();
             List<string> steps = new List<string>();
             List<string> measurements = new List<string>();
             List<string> recipeN = new List<string>();
             Recipes obj = new Recipes(); //Object created to access methods from other class
+            PrintUtil PrintUtil = new PrintUtil();
 
-            obj.displayMenu("Main Menu");
-
+			PrintUtil.PrintMenu();
 
 
             int choice = Convert.ToInt32(Console.ReadLine());
@@ -70,7 +70,7 @@ namespace ProgrammingPOE_1
                 /*
                  * the choices are placed at the end of the case statement to provide a constant choice for the user
                  */
-                obj.displayMenu("Main Menu");
+                PrintUtil.PrintMenu();
 
                 choice = Convert.ToInt32(Console.ReadLine());
             }
